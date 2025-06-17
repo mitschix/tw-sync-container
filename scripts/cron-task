@@ -1,0 +1,3 @@
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/10 * * * * echo ">>> Cron job working $(date)" > /proc/1/fd/1 2>&1
+*/30 * * * * sh $HOME/sync-tw-caldav.sh > /proc/1/fd/1 2>&1
