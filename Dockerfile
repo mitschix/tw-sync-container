@@ -48,9 +48,9 @@ COPY --from=builder /root/code/build/src/task /usr/local/bin/
 USER $USER
 WORKDIR /home/$USER
 
-COPY --chown=$USER:$USER ./scripts/ .
+COPY --chown=$USER:$USER sync.sh .
 
 # run hack to not show news info create empty theme and create .taskrc file
 RUN touch default.theme && echo "confirmation=off\nnews.version=9.9.9" > .taskrc
 
-CMD sh start.sh
+CMD sh sync.sh
