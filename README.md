@@ -1,6 +1,6 @@
 # TaskWarrior Sync Container
 
-A docker container to periodically sync task warrior tasks with taskchampion sync server and caldav (or another
+A docker container sync task warrior tasks with taskchampion sync server and caldav (or another
 service [see syncall](https://github.com/bergercookie/syncall) for more details) to use a mobile
 make mobile usage for taskwarrior less pain-in-the-\*.
 
@@ -25,10 +25,4 @@ store sync state => will cause errors when state is not provided and second run)
 ```bash
 podman build -t synctw .
 podman run --env-file=.env -v ./sync-state/:/home/synctw/.config/syncall/ --name synctw --replace synctw:latest
-```
-
-Since the container is running endlessly you need to stop it via podman/docker
-
-```bash
-podman stop synctw
 ```
