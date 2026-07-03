@@ -50,7 +50,7 @@ WORKDIR /home/$USER
 
 COPY --chown=$USER:$USER ./scripts/ .
 
-# + hack to not show news info
-RUN crontab -u $USER cron-task && echo "confirmation=off\nnews.version=9.9.9" > .taskrc
+# run hack to not show news info create empty theme and create .taskrc file
+RUN touch default.theme && echo "confirmation=off\nnews.version=9.9.9" > .taskrc
 
 CMD sh start.sh
